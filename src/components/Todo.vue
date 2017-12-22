@@ -1,16 +1,22 @@
 <template lang="jade">
-  p Chao cong
-    a(href="/123") Link ne
-
+  div.container
+    todo-input(v-bind:todos="todos")
+    todo-list(v-bind:todos="todos")
 </template>
 
 <script>
+  import TodoInput from './TodoInput'
+  import TodoList from './TodoList'
   export default {
     name: 'Todo',
-    data () {
+    data: function () {
       return {
-        name: 'hello'
+        todos: []
       }
+    },
+    components: {
+      'todo-input': TodoInput,
+      'todo-list': TodoList
     }
   }
 </script>
